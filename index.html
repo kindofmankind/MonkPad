@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>MonkPad.xyz — Karma-Safe Launchpad</title>
+  <meta name="description" content="MonkPad: Burn ego, not bags. Karma-safe mints, community-vetted projects, and spiritual degen fun." />
+  <style>
+    :root{--bg1:#0b0b0c;--bg2:#151019;--accent:#6c63ff;--text:#e9e9ee;--muted:#a9a9b6;--border:#24222a}
+    *{box-sizing:border-box}html,body{margin:0;padding:0;background:
+      radial-gradient(1200px 800px at 80% 20%, #23182f 0%, transparent 60%),
+      linear-gradient(180deg,var(--bg1),var(--bg2));color:var(--text);
+      font-family:Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial}
+    .wrap{max-width:1120px;margin:0 auto;padding:24px}
+    header{display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--border);padding:16px 0}
+    .brand{font-weight:800;letter-spacing:-.02em}.brand span{opacity:.6;font-weight:600;margin-left:.4rem}
+    nav a{color:var(--muted);text-decoration:none;margin-left:16px}nav a:hover{color:var(--text)}
+    .hero{display:grid;grid-template-columns:1.2fr .8fr;gap:40px;align-items:center;padding:64px 0}
+    .eyebrow{font-size:14px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:12px}
+    h1{font-size:56px;line-height:1.05;margin:0 0 16px;letter-spacing:-.02em}
+    .lead{color:var(--muted);font-size:18px;line-height:1.7;max-width:560px}
+    .cta{display:flex;flex-direction:column;gap:12px;margin:28px 0}
+    .btn{display:inline-flex;align-items:center;justify-content:center;padding:14px 20px;border-radius:999px;font-weight:700;text-decoration:none}
+    .btn-primary{background:var(--accent);color:#fff;box-shadow:0 8px 24px rgba(108,99,255,.35)}
+    .btn-outline{border:2px solid var(--accent);color:var(--accent);background:transparent}
+    .card{border:1px solid var(--border);background:rgba(255,255,255,.02);border-radius:16px;padding:18px}
+    .illus{width:100%;border-radius:14px;display:flex;align-items:center;justify-content:center;border:1px solid var(--border);background:#0d0d10;height:360px;color:#6f6f7a}
+    .section{padding:40px 0;border-top:1px solid var(--border)}
+    .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+    .feature h3{margin:8px 0 6px}.muted{color:var(--muted)}
+    footer{border-top:1px solid var(--border);padding:24px 0;color:var(--muted);font-size:14px;text-align:center}
+    .uc{margin-top:8px;color:#b9b9c6}
+    @media (max-width:900px){.hero{grid-template-columns:1fr;gap:28px;padding:40px 0}h1{font-size:40px}.grid-3{grid-template-columns:1fr}.illus{height:240px}header{flex-direction:column;gap:10px;align-items:flex-start}nav{display:none}}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="brand">MonkPad<span>.xyz</span></div>
+      <nav>
+        <a href="#about">About</a>
+        <a href="#mints">Mints</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div>
+          <div class="eyebrow">🧘 Welcome to MonkPad.xyz</div>
+          <h1>Burn ego, not bags.</h1>
+          <p class="lead">MonkPad is your path to karma-safe mints, community-vetted projects, and spiritual degen fun.</p>
+
+          <div class="cta">
+            <a class="btn btn-primary" href="mailto:monkpad.eth@proton.me">Submit Your Project to monkpad.eth</a>
+            <a class="btn btn-outline" href="#mints">View Mints (coming soon)</a>
+          </div>
+
+          <div class="muted">Wallet: <strong>monkpad.eth</strong></div>
+        </div>
+
+        <div class="card">
+          <!-- Replace this box with an image later if you want -->
+          <div class="illus">Monk artwork / hero image</div>
+        </div>
+      </section>
+
+      <section id="about" class="section">
+        <h2>Why MonkPad?</h2>
+        <p class="muted" style="max-width:760px">Too many rugs. Too much noise. MonkPad exists to spotlight builders with clean karma and real intent. We combine community votes, basic guardrails, and good-vibe curation so launches feel safe and fun.</p>
+        <div class="grid-3" style="margin-top:18px">
+          <div class="feature card">
+            <h3>✅ Community-Vetted</h3>
+            <p class="muted">Projects pass a vibe check first. We ship what the community actually wants.</p>
+          </div>
+          <div class="feature card">
+            <h3>🔒 Rug-Aware</h3>
+            <p class="muted">Simple guardrails and transparency. No magic, just responsibility.</p>
+          </div>
+          <div class="feature card">
+            <h3>📿 Karma Scores</h3>
+            <p class="muted">Signals from holders & contributors. We reward peace, not pump.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="mints" class="section">
+        <h2>Upcoming Mints</h2>
+        <p class="muted">We’re curating the first drops. If you’re launching, send details to <a href="mailto:monkpad.eth@proton.me">monkpad.eth@proton.me</a>.</p>
+        <div class="grid-3" style="margin-top:18px">
+          <div class="card"><strong>DEGENZEN</strong><br><span class="muted">TBA • Meme mint</span></div>
+          <div class="card"><strong>MONKVERSE TOKENS</strong><br><span class="muted">TBA • 444 karma-bound</span></div>
+          <div class="card"><strong>ZAP POP!</strong><br><span class="muted">Preview • Vetting phase</span></div>
+        </div>
+      </section>
+
+      <section id="contact" class="section">
+        <h2>Get in touch</h2>
+        <p class="muted">Email <a href="mailto:monkpad.eth@proton.me">monkpad.eth@proton.me</a> • X: <a href="https://x.com/monkpadxyz" target="_blank">@monkpadxyz</a></p>
+        <p class="uc">🛠️ Under construction. Features roll out continuously.</p>
+      </section>
+    </main>
+
+    <footer>© <span id="y"></span> MonkPad.xyz • Built with mindfulness</footer>
+  </div>
+  <script>document.getElementById('y').textContent=new Date().getFullYear()</script>
+</body>
+</html>
