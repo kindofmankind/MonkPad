@@ -1,1 +1,143 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
 
+  <title>MonkPad.xyz — Karma-Safe Launchpad</title>
+  <meta name="description" content="MonkPad: Burn ego, not bags. Karma-safe mints, community-vetted projects, and spiritual degen fun." />
+
+  <!-- Helpful cache headers (still use the VERSION query below for images) -->
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta http-equiv="Expires" content="0" />
+
+  <style>
+    :root{
+      --bg1:#0b0b0c; --bg2:#151019; --accent:#6c63ff; --text:#e9e9ee; --muted:#a9a9b6; --border:#24222a;
+      --pill:#1d1a22; --pillText:#d6d1e3; --btn:#6f6afc; --btnText:#fff; --btnHover:#5e59ec;
+      --good:#59ffa7;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0; color:var(--text); background:
+        radial-gradient(1200px 800px at 80% 20%, #23182f 0%, transparent 60%),
+        linear-gradient(108deg,var(--bg1),var(--bg2));
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial;
+    }
+    a{color:var(--text); text-decoration:none}
+    .wrap{max-width:1120px; margin:0 auto; padding:28px}
+    header{display:flex; align-items:center; justify-content:space-between; border-bottom:1px solid var(--border); padding:16px 0}
+    .brand{font-weight:800; letter-spacing:.02em}
+    nav a{color:var(--muted); text-decoration:none; margin-left:16px}
+    nav a:hover{color:var(--text)}
+
+    .hero{display:grid; grid-template-columns:1.2fr .8fr; gap:40px; align-items:center; padding:56px 0}
+    .eyebrow{font-size:14px; letter-spacing:.08em; text-transform:uppercase; color:var(--muted); margin-bottom:6px}
+    h1{font-size:56px; line-height:1.05; margin:10px 0 16px}
+    .lede{color:var(--muted); font-size:18px; line-height:1.7; max-width:560px}
+
+    .cta-row{display:flex; gap:14px; margin:26px 0}
+    .btn{display:inline-flex; align-items:center; justify-content:center; padding:14px 20px; border-radius:12px; border:1px solid transparent; transition:all .18s ease}
+    .btn.primary{background:var(--btn); color:var(--btnText); box-shadow:0 8px 24px rgba(111,106,252,.25)}
+    .btn.primary:hover{background:var(--btnHover); transform:translateY(-1px)}
+    .btn.ghost{background:transparent; color:var(--muted); border-color:var(--border)}
+    .btn.ghost:hover{color:var(--text); border-color:#34323a}
+
+    .badges{display:flex; flex-wrap:wrap; gap:8px; margin-top:22px}
+    .badge{background:var(--pill); color:var(--pillText); border:1px solid #2b2633; padding:6px 10px; border-radius:999px; font-size:12px; letter-spacing:.02em}
+
+    .hero-art .frame{
+      aspect-ratio: 4 / 3;
+      background: radial-gradient(80% 60% at 50% 40%, #2b2036 0%, #130f18 60%, #0b0b0c 100%);
+      border:1px solid var(--border);
+      border-radius:16px; overflow:hidden;
+      display:grid; place-items:center;
+    }
+    .hero-art img{display:block; width:100%; height:100%; object-fit:cover}
+
+    footer{margin-top:48px; color:var(--muted); font-size:14px}
+
+    /* Version ribbon */
+    .version{
+      position:fixed; top:14px; right:14px; z-index:9;
+      background:linear-gradient(135deg,#28223a,#1e1a28);
+      border:1px solid #3a3550; color:#cfc7ff; padding:6px 10px; border-radius:10px; font-size:12px
+    }
+    .version b{color:#fff}
+    .loaded{color:var(--good)}
+    .ens{color:#c8b6ff}
+    @media (max-width:960px){
+      .hero{grid-template-columns:1fr; gap:28px}
+      h1{font-size:42px}
+    }
+  </style>
+</head>
+<body>
+  <!-- Change this one string every time you want to prove a fresh deploy -->
+  <div class="version">Build: <b id="version">v1</b> • Loaded: <span class="loaded" id="loaded-at">…</span></div>
+
+  <div class="wrap">
+    <header>
+      <div class="brand">🧘 MonkPad</div>
+      <nav>
+        <a href="#mints">Mints</a>
+        <a href="mailto:monkpad.team@gmail.com">Contact</a>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <div>
+        <div class="eyebrow">Welcome to</div>
+        <h1>MonkPad.xyz</h1>
+        <p class="lede">
+          Burn ego, not bags. MonkPad is your path to karma-safe mints,
+          community-vetted projects, and spiritual degen fun.
+        </p>
+
+        <div class="cta-row">
+          <a class="btn primary" href="mailto:monkpad.eth@gmail.com?subject=Project%20Submission%20for%20MonkPad">🚀 Submit to monkpad.eth</a>
+          <a class="btn ghost" id="mints" href="#mints">🔮 View mints (soon)</a>
+        </div>
+
+        <div class="badges">
+          <span class="badge">BTC</span>
+          <span class="badge">ETH</span>
+          <span class="badge">SOL</span>
+          <span class="badge">ADA</span>
+          <span class="badge">HBAR</span>
+          <span class="badge">MONAD</span>
+        </div>
+
+        <footer>
+          Tip: email us directly at
+          <a href="mailto:monkpad.team@gmail.com">monkpad.team@gmail.com</a>.
+          Submissions also welcome to ENS: <strong class="ens">monkpad.eth</strong>.
+        </footer>
+      </div>
+
+      <div class="hero-art">
+        <div class="frame">
+          <!-- Cache-busted image: VERSION will append to the URL so you always see the new file -->
+          <img id="hero" src="./monk-hero.png" alt="Futuristic monk with crypto coins swirling around (BTC, ETH, SOL, ADA, HBAR, MONAD)" />
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <script>
+    // >>> CHANGE THIS EVERY TIME YOU WANT TO PROVE A NEW DEPLOY <<<
+    const VERSION = 'v1';
+
+    // Show the version & load time so you can confirm what actually rendered
+    document.getElementById('version').textContent = VERSION;
+    document.getElementById('loaded-at').textContent =
+      new Date().toLocaleString(undefined, {hour12:false});
+
+    // Cache-bust your hero image by appending ?v=VERSION
+    const hero = document.getElementById('hero');
+    const src = hero.getAttribute('src').split('?')[0]; // strip any old query
+    hero.setAttribute('src', src + '?v=' + encodeURIComponent(VERSION));
+  </script>
+</body>
+</html>
