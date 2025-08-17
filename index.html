@@ -1,121 +1,342 @@
 <!doctype html>
 <html lang="en">
 <head>
+  <!-- Essentials -->
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>MonkPad.xyz — Karma-Safe Launchpad</title>
-  <meta name="description" content="MonkPad: Burn ego, not bags. Karma-safe mints, community-vetted projects, and spiritual degen fun." />
+  <meta name="description" content="MonkPad is your path to karma-safe mints, community-vetted projects, and spiritual degen fun. Burn ego, not bags." />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 128 128'%3E%3Ccircle cx='64' cy='64' r='62' fill='%23110F1F'/%3E%3Cpath d='M64 18c14 0 26 12 26 26s-12 26-26 26S38 58 38 44 50 18 64 18z' fill='%23A58DFF'/%3E%3Ccircle cx='64' cy='44' r='10' fill='%23fff'/%3E%3C/svg%3E" />
+
+  <!-- Fonts (fast) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+  <!-- OpenGraph / X -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://monkpad.xyz/" />
+  <meta property="og:title" content="MonkPad.xyz — Karma-Safe Launchpad" />
+  <meta property="og:description" content="Burn ego, not bags. A launchpad with community-vetted vibes and clean karma." />
+  <meta property="og:image" content="https://monkpad.xyz/monk-hero.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "MonkPad",
+    "url": "https://monkpad.xyz",
+    "description": "Karma-safe launchpad. Community-vetted projects.",
+    "sameAs": ["https://x.com/yourhandle"]
+  }
+  </script>
 
   <style>
     :root{
-      --bg0:#0b0b0c; --bg1:#151019; --bg2:#1f1629;
-      --muted:#9a9ab2; --text:#f5f6ff; --accent:#6b63ff; --accent2:#9a7cff;
-      --pill:#2a2334; --good:#7dffa0; --shadow: rgba(0,0,0,.35);
+      --bg: #0b0a12;
+      --ink: #E9E7FF;
+      --muted:#C5C1F4;
+      --accent:#9B7BFF;   /* neon violet */
+      --accent-2:#43FFE9; /* mint-cyan */
+      --warn:#FFCE47;
+      --grid:#2a2742;
+      --glass: rgba(255,255,255,0.06);
+      --glass-strong: rgba(255,255,255,0.12);
+      --radius: 16px;
+      --shadow: 0 10px 40px rgba(0,0,0,.35);
     }
-    *{box-sizing:border-box}
-    html,body{margin:0;padding:0;background:radial-gradient(1100px 800px at 20% 20%,#22192f 0%,transparent 60%), radial-gradient(1100px 800px at 80% 20%,#1a1a24 0%,transparent 60%), var(--bg0); color:var(--text); font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";}
-    a{color:var(--text); text-decoration:none}
-    .wrap{max-width:1120px; margin:0 auto; padding:28px}
-    header{display:flex; align-items:center; justify-content:space-between; gap:20px; margin:4px 0 24px}
-    nav a{opacity:.9; margin-left:18px;}
-    nav a:hover{opacity:1}
-    h1{font-size:56px; line-height:1.1; margin:16px 0 10px}
-    p.lede{color:var(--muted); font-size:18px; line-height:1.7; max-width:560px}
-    .cta-row{display:flex; gap:16px; flex-wrap:wrap; margin:22px 0}
-    .btn{display:inline-flex; align-items:center; justify-content:center; padding:16px 22px; border-radius:14px; border:2px solid transparent; font-weight:700; transition:.2s ease; box-shadow:0 10px 22px -10px var(--shadow)}
-    .btn.primary{background:linear-gradient(180deg, var(--accent), var(--accent2)); color:#fff}
-    .btn.primary:hover{filter:brightness(1.04); transform:translateY(-1px)}
-    .btn.ghost{background:transparent; border-color:#3a3447; color:var(--muted)}
-    .btn.ghost:hover{border-color:#514a62; color:#cfcfe3}
-    .grid{display:grid; grid-template-columns: 1.1fr .9fr; gap:56px; align-items:center}
-    .frame{background:linear-gradient(180deg,#0e0c12,#0c0b11); border:1px solid #2d243a; border-radius:20px; min-height:360px; display:flex; align-items:center; justify-content:center; overflow:hidden; box-shadow:0 20px 50px -20px var(--shadow)}
-    .frame img{width:100%; height:100%; object-fit:cover; display:block}
-    .badges{display:flex; gap:8px; flex-wrap:wrap; margin:28px 0}
-    .badge{background:var(--pill); border:1px solid #3a3048; color:#c9c5d8; padding:6px 10px; border-radius:999px; font-size:12px; letter-spacing:.2px}
-    footer{margin-top:18px; color:var(--muted); font-size:13px}
-    .logo{display:flex; align-items:center; gap:8px; letter-spacing:.5px; font-weight:800}
-    .dot{width:7px; height:7px; background:var(--good); border-radius:999px; display:inline-block; margin-left:6px}
-    .ribbon{position:fixed; right:14px; bottom:14px; background:#2a2334; color:#cfcfe3; border:1px solid #3b2f4a; border-radius:10px; padding:6px 10px; font-size:12px; opacity:.9}
-    @media (max-width:920px){ .grid{grid-template-columns:1fr; gap:28px} h1{font-size:40px}}
+    @media (prefers-color-scheme: light){
+      :root{ --bg:#0b0a12; } /* force dark aesthetic */
+    }
+
+    * { box-sizing: border-box }
+    html,body{ height:100% }
+    body{
+      margin:0;
+      color:var(--ink);
+      font: 16px/1.6 Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      background: radial-gradient(1000px 600px at 20% -10%, #1a1730 0%, transparent 60%),
+                  radial-gradient(800px 500px at 80% 0%, #16132b 0%, transparent 60%),
+                  var(--bg);
+      overflow-x:hidden;
+    }
+
+    /* Background grid + soft vignette */
+    .bg-grid::before{
+      content:"";
+      position:fixed; inset:0;
+      background:
+        linear-gradient(transparent 96%, rgba(255,255,255,.04) 96%) 0 0/ 32px 32px,
+        linear-gradient(90deg, transparent 96%, rgba(255,255,255,.04) 96%) 0 0/ 32px 32px;
+      opacity:.35; pointer-events:none; z-index:0;
+    }
+    .wrap{ max-width:1200px; padding:40px 24px 96px; margin:auto; position:relative; z-index:1; }
+
+    /* Top nav */
+    .nav{
+      display:flex; align-items:center; justify-content:space-between;
+      gap:16px; margin-bottom:28px;
+    }
+    .brand{ display:flex; align-items:center; gap:12px; font-weight:800; letter-spacing:.2px; }
+    .brand-badge{
+      width:34px; height:34px; border-radius:10px;
+      background: radial-gradient(120% 120% at 20% 20%, var(--accent-2), var(--accent));
+      box-shadow: 0 0 24px rgba(155,123,255,.6);
+    }
+    .links a{
+      color:var(--muted); text-decoration:none; margin:0 10px; font-weight:600;
+    }
+    .links a:hover{ color:#fff }
+
+    /* Hero */
+    .hero{ display:grid; grid-template-columns: 1.1fr .9fr; gap:40px; align-items:center; }
+    @media (max-width: 900px){ .hero{ grid-template-columns:1fr; } }
+
+    .eyebrow{ font-weight:700; color:var(--warn); font-size:.95rem; letter-spacing:.3px; }
+    h1{
+      margin:10px 0 8px;
+      font-weight:800; line-height:1.05; letter-spacing:-.5px;
+      font-size: clamp(38px, 5vw, 64px);
+      text-wrap: balance;
+      text-shadow: 0 1px 0 rgba(0,0,0,.3);
+    }
+    .lede{ color: var(--muted); font-size:1.1rem; max-width:62ch; }
+
+    .cta-row{ display:flex; flex-wrap:wrap; gap:14px; margin:22px 0 8px; }
+    .btn{
+      --h:56px;
+      height:var(--h); padding:0 22px; border-radius:14px; border:0; cursor:pointer;
+      font-weight:700; letter-spacing:.3px; color:#101015;
+      background: linear-gradient(90deg, var(--accent) 0%, #B08CFF 50%, var(--accent) 100%);
+      background-size:200% 100%;
+      box-shadow: 0 8px 30px rgba(155,123,255,.35);
+      transition: transform .2s ease, background-position .5s ease;
+    }
+    .btn:hover{ transform: translateY(-2px); background-position:100% 0; }
+    .btn-ghost{
+      background: transparent; color: var(--ink); border: 2px solid rgba(255,255,255,.2);
+      box-shadow:none;
+    }
+    .btn-ghost:hover{ border-color: rgba(255,255,255,.35) }
+
+    /* Hero media with animated border */
+    .media{
+      position:relative; border-radius: clamp(16px, 2.2vw, 22px); overflow:hidden;
+      background: #0f0d1b;
+      box-shadow: var(--shadow);
+      isolation:isolate;
+    }
+    .media::before{
+      content:""; position:absolute; inset:-2px;
+      background: conic-gradient(from 0deg, var(--accent), var(--accent-2), var(--accent));
+      filter: blur(12px); opacity:.6; z-index:-1;
+      animation: spin 6s linear infinite;
+    }
+    @keyframes spin{ to { transform: rotate(360deg) } }
+    @media (prefers-reduced-motion: reduce){ .media::before{ animation:none } }
+
+    .hero-img{
+      display:block; width:100%; height:auto; aspect-ratio: 4 / 3; object-fit:cover;
+      filter: saturate(1.1) contrast(1.02);
+    }
+
+    /* Badges row */
+    .badges{
+      display:flex; flex-wrap:wrap; gap:10px; margin:18px 0 0;
+    }
+    .pill{
+      padding:8px 12px; border-radius:999px; font-weight:700; font-size:.86rem;
+      color:#DCD8FF; background: var(--glass); border:1px solid rgba(255,255,255,.08);
+      backdrop-filter: blur(6px);
+    }
+
+    /* Feature grid */
+    .section{ margin: 88px 0 12px; }
+    .features{
+      display:grid; grid-template-columns: repeat(3, 1fr); gap:18px;
+    }
+    @media (max-width: 1000px){ .features{ grid-template-columns:1fr 1fr } }
+    @media (max-width: 640px){ .features{ grid-template-columns:1fr } }
+
+    .card{
+      border-radius: var(--radius);
+      padding:22px 20px;
+      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
+      border:1px solid rgba(255,255,255,.08);
+      box-shadow: var(--shadow);
+      position:relative;
+      overflow:hidden;
+    }
+    .card h3{ margin:0 0 6px; font-size:1.06rem }
+    .card p{ margin:0; color:var(--muted) }
+    .card .dot{
+      position:absolute; top:14px; right:16px; width:10px; height:10px; border-radius:50%;
+      background: radial-gradient(var(--accent-2), var(--accent));
+      box-shadow: 0 0 20px var(--accent-2);
+      opacity:.9;
+    }
+
+    /* Footer */
+    footer{
+      margin-top: 96px; padding-top: 22px; border-top: 1px dashed rgba(255,255,255,.15);
+      color: var(--muted); font-size:.95rem;
+    }
+    .ens{ font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; color:#fff }
+
+    /* Background particles (subtle) */
+    canvas#fx{ position: fixed; inset:0; z-index: 0; pointer-events:none; opacity:.35 }
+    @media (prefers-reduced-motion: reduce){ canvas#fx{ display:none } }
+
+    /* Accessibility helpers */
+    .sr{ position:absolute !important; width:1px; height:1px; overflow:hidden; clip:rect(1px,1px,1px,1px); white-space:nowrap; }
   </style>
 </head>
+
 <body>
+  <canvas id="fx" aria-hidden="true"></canvas>
+  <div class="bg-grid"></div>
+
   <div class="wrap">
-    <header>
-      <div class="logo">🧘‍♂️ MonkPad <span style="opacity:.6">.xyz</span></div>
-      <nav>
+    <!-- NAV -->
+    <nav class="nav" aria-label="Primary">
+      <div class="brand">
+        <span class="brand-badge" aria-hidden="true"></span>
+        <span>MonkPad<span style="opacity:.7">.xyz</span></span>
+      </div>
+      <div class="links">
         <a href="#about">About</a>
         <a href="#mints">Mints</a>
         <a href="#contact">Contact</a>
-      </nav>
-    </header>
+      </div>
+    </nav>
 
-    <main class="grid">
-      <section>
-        <div style="opacity:.8; font-size:14px; letter-spacing:.4px; margin-bottom:8px">🕯️ WELCOME TO MONKPAD.XYZ</div>
+    <!-- HERO -->
+    <section class="hero" id="home">
+      <div>
+        <div class="eyebrow">🙏 WELCOME TO MONKPAD.XYZ</div>
         <h1>Burn ego, not bags.</h1>
-        <p class="lede">
-          MonkPad is your path to karma-safe mints, community-vetted projects, and spiritual degen fun.
-        </p>
+        <p class="lede">MonkPad is your path to karma-safe mints, community-vetted projects, and spiritual degen fun.</p>
 
         <div class="cta-row">
-          <a class="btn primary" href="mailto:monkpad.team@gmail.com">Submit Your Project to monkpad.eth</a>
-          <a class="btn ghost" href="#mints">View Mints (coming soon)</a>
+          <a class="btn" href="mailto:monkpad.team@gmail.com?subject=Project%20Submission%20for%20MonkPad&body=Share%20links%2C%20team%2C%20audits%2C%20and%20your%20karma%20pitch.">
+            Submit Your Project
+          </a>
+          <a class="btn btn-ghost" href="#mints" aria-label="View mints (coming soon)">View Mints (soon)</a>
         </div>
 
-        <div style="margin-top:10px; color:var(--muted); font-size:14px">
-          Wallet: <strong>monkpad.eth</strong><span class="dot"></span>
+        <div class="badges" aria-label="Supported chains">
+          <span class="pill">BTC</span>
+          <span class="pill">ETH</span>
+          <span class="pill">SOL</span>
+          <span class="pill">ADA</span>
+          <span class="pill">HBAR</span>
+          <span class="pill">MONAD</span>
         </div>
+      </div>
 
-        <div class="badges">
-          <span class="badge">BTC</span>
-          <span class="badge">ETH</span>
-          <span class="badge">SOL</span>
-          <span class="badge">ADA</span>
-          <span class="badge">HBAR</span>
-          <span class="badge">MONAD</span>
-        </div>
-
-        <footer>
-          Tip: email us directly at
-          <a href="mailto:monkpad.team@gmail.com">monkpad.team@gmail.com</a>.
-          Submissions also welcome to ENS: <strong>monkpad.eth</strong>.
-        </footer>
-      </section>
-
-      <section aria-label="Hero artwork">
-        <div class="frame">
-          <!-- Your uploaded image at repo root -->
-          <img src="/monk-hero.png"
-               alt="Futuristic monk with crypto coins (BTC, ETH, SOL, ADA, HBAR, Monad) swirling around" />
-        </div>
-      </section>
-    </main>
-
-    <section id="about" style="margin-top:56px">
-      <h2 style="margin:0 0 8px">Why MonkPad?</h2>
-      <p class="lede" style="max-width:760px">
-        Too many rugs. Too much noise. MonkPad exists to spotlight builders with clean karma
-        and real intent. We combine community vibes, basic guardrails, and good-vibe curation so launches
-        feel safe and fun.
-      </p>
+      <figure class="media">
+        <!-- Place /monk-hero.png at repo root -->
+        <img class="hero-img" src="monk-hero.png" alt="Futuristic monk with crypto coins (BTC, ETH, SOL, ADA, HBAR, Monad) swirling around" loading="eager" decoding="async">
+      </figure>
     </section>
 
-    <section id="mints" style="margin-top:34px">
-      <h3 style="margin:0 0 10px; opacity:.9">Mints</h3>
-      <p class="lede" style="max-width:720px">
-        We’re collecting submissions now. If you want early access, send details to
-        <a href="mailto:monkpad.team@gmail.com">monkpad.team@gmail.com</a>.
-      </p>
+    <!-- FEATURES -->
+    <section class="section" id="about" aria-labelledby="about-title">
+      <h2 id="about-title" class="sr">Why MonkPad?</h2>
+      <div class="features">
+        <article class="card">
+          <span class="dot" aria-hidden="true"></span>
+          <h3>Community-Vetted</h3>
+          <p>Vibe checks first. We surface builders with clean karma and real intent.</p>
+        </article>
+        <article class="card">
+          <span class="dot" aria-hidden="true"></span>
+          <h3>Rug-Aware</h3>
+          <p>Simple guardrails + transparency. No magic — just responsibility.</p>
+        </article>
+        <article class="card">
+          <span class="dot" aria-hidden="true"></span>
+          <h3>Karma Scores</h3>
+          <p>Signals from holders &amp; contributors prioritize peace, not pumps.</p>
+        </article>
+      </div>
     </section>
 
-    <section id="contact" style="margin-top:34px">
-      <h3 style="margin:0 0 10px; opacity:.9">Contact</h3>
-      <p class="lede">Email <a href="mailto:monkpad.team@gmail.com">monkpad.team@gmail.com</a> or DM <strong>monkpad.eth</strong>.</p>
+    <!-- MINTS PLACEHOLDER -->
+    <section class="section" id="mints" aria-labelledby="mints-title">
+      <h2 id="mints-title" class="sr">Mints</h2>
+      <div class="card">
+        <h3>Curated Mints</h3>
+        <p style="color:var(--muted)">Curation module drops soon. Want to be first? Ping us with your deck.</p>
+      </div>
     </section>
+
+    <!-- CONTACT / FOOTER -->
+    <footer id="contact" class="section" aria-labelledby="contact-title">
+      <h2 id="contact-title" class="sr">Contact</h2>
+      <p>Tip: email us directly at <a href="mailto:monkpad.team@gmail.com">monkpad.team@gmail.com</a>.</p>
+      <p>Submissions also welcome to ENS: <span class="ens">monkpad.eth</span>.</p>
+    </footer>
   </div>
 
-  <!-- small build tag to verify live version -->
-  <div class="ribbon">Build: v2</div>
+  <!-- FX: tiny GPU-friendly particles -->
+  <script>
+    (() => {
+      const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (prefersReduced) return;
+
+      const c = document.getElementById('fx');
+      const dpr = Math.min(2, window.devicePixelRatio || 1);
+      const ctx = c.getContext('2d');
+      let W, H, P=[];
+
+      function resize(){
+        W = c.width = Math.floor(innerWidth * dpr);
+        H = c.height = Math.floor(innerHeight * dpr);
+        c.style.width = innerWidth + 'px';
+        c.style.height = innerHeight + 'px';
+        spawn();
+      }
+      addEventListener('resize', resize, {passive:true});
+
+      function spawn(){
+        const n = Math.floor((W*H) / (140000 * dpr));
+        P = Array.from({length:n}, () => ({
+          x: Math.random()*W,
+          y: Math.random()*H,
+          r: 0.6 + Math.random()*1.8,
+          s: 0.2 + Math.random()*0.7,
+          a: Math.random()*Math.PI*2
+        }));
+      }
+
+      function tick(){
+        ctx.clearRect(0,0,W,H);
+        for(const p of P){
+          p.x += Math.cos(p.a)*p.s;
+          p.y += Math.sin(p.a)*p.s;
+          p.a += (Math.random()-0.5)*0.05;
+
+          if(p.x < -50) p.x = W+50;
+          if(p.x > W+50) p.x = -50;
+          if(p.y < -50) p.y = H+50;
+          if(p.y > H+50) p.y = -50;
+
+          const g = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, p.r*6);
+          g.addColorStop(0, 'rgba(67,255,233,0.25)');
+          g.addColorStop(1, 'rgba(155,123,255,0)');
+          ctx.fillStyle = g;
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, p.r*6, 0, Math.PI*2);
+          ctx.fill();
+        }
+        requestAnimationFrame(tick);
+      }
+
+      resize(); tick();
+    })();
+  </script>
 </body>
 </html>
