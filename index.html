@@ -4,24 +4,27 @@
   <!-- Essentials -->
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>MonkPad.xyz — Karma-Safe Launchpad</title>
-  <meta name="description" content="MonkPad is your path to karma-safe mints, community-vetted projects, and spiritual degen fun. Burn ego, not bags v2.1." />
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 128 128'%3E%3Ccircle cx='64' cy='64' r='62' fill='%23110F1F'/%3E%3Cpath d='M64 18c14 0 26 12 26 26s-12 26-26 26S38 58 38 44 50 18 64 18z' fill='%23A58DFF'/%3E%3Ccircle cx='64' cy='44' r='10' fill='%23fff'/%3E%3C/svg%3E" />
+  <title>MonkPad.xyz – Karma-Safe Launchpad</title>
+  <meta name="description" content="MonkPad is your path to karma-safe mints, community-vetted projects, and spiritual degen fun. Burn ego, not bags." />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 128 128'><circle cx='64' cy='64' r='62' fill='%23110F1F'/></svg>">
 
-  <!-- Fonts (fast) -->
+  <!-- Performance hint: make the hero feel instant -->
+  <link rel="preload" as="image" href="monk-hero.png" imagesrcset="monk-hero.png 1024w" imagesizes="100vw" />
+
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
 
-  <!-- OpenGraph / X -->
+  <!-- Social cards -->
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://monkpad.xyz/" />
-  <meta property="og:title" content="MonkPad.xyz — Karma-Safe Launchpad" />
+  <meta property="og:title" content="MonkPad.xyz – Karma-Safe Launchpad" />
   <meta property="og:description" content="Burn ego, not bags. A launchpad with community-vetted vibes and clean karma." />
   <meta property="og:image" content="https://monkpad.xyz/monk-hero.png" />
   <meta name="twitter:card" content="summary_large_image" />
 
-  <!-- JSON-LD -->
+  <!-- Schema -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -35,308 +38,194 @@
 
   <style>
     :root{
-      --bg: #0b0a12;
-      --ink: #E9E7FF;
+      --ink:#E9E7FF;
+      --bg:#0B0A12;
       --muted:#C5C1F4;
-      --accent:#9B7BFF;   /* neon violet */
-      --accent-2:#43FFE9; /* mint-cyan */
-      --warn:#FFCE47;
-      --grid:#2a2742;
-      --glass: rgba(255,255,255,0.06);
-      --glass-strong: rgba(255,255,255,0.12);
-      --radius: 16px;
-      --shadow: 0 10px 40px rgba(0,0,0,.35);
+      --brand:#7B61FF;
+      --brand-2:#5A3CFF;
+      --shadow:0 10px 35px rgba(0,0,0,.35);
+      --maxw: 1100px;
     }
-    @media (prefers-color-scheme: light){
-      :root{ --bg:#0b0a12; } /* force dark aesthetic */
-    }
-
-    * { box-sizing: border-box }
-    html,body{ height:100% }
+    *{ box-sizing:border-box; margin:0; padding:0; }
+    html,body{ height:100%; }
     body{
-      margin:0;
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
       color:var(--ink);
-      font: 16px/1.6 Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
-      background: radial-gradient(1000px 600px at 20% -10%, #1a1730 0%, transparent 60%),
-                  radial-gradient(800px 500px at 80% 0%, #16132b 0%, transparent 60%),
-                  var(--bg);
+      background:var(--bg);
       overflow-x:hidden;
     }
 
-    /* Background grid + soft vignette */
-    .bg-grid::before{
-      content:"";
-      position:fixed; inset:0;
-      background:
-        linear-gradient(transparent 96%, rgba(255,255,255,.04) 96%) 0 0/ 32px 32px,
-        linear-gradient(90deg, transparent 96%, rgba(255,255,255,.04) 96%) 0 0/ 32px 32px;
-      opacity:.35; pointer-events:none; z-index:0;
-    }
-    .wrap{ max-width:1200px; padding:40px 24px 96px; margin:auto; position:relative; z-index:1; }
-
-    /* Top nav */
-    .nav{
-      display:flex; align-items:center; justify-content:space-between;
-      gap:16px; margin-bottom:28px;
-    }
-    .brand{ display:flex; align-items:center; gap:12px; font-weight:800; letter-spacing:.2px; }
-    .brand-badge{
-      width:34px; height:34px; border-radius:10px;
-      background: radial-gradient(120% 120% at 20% 20%, var(--accent-2), var(--accent));
-      box-shadow: 0 0 24px rgba(155,123,255,.6);
-    }
-    .links a{
-      color:var(--muted); text-decoration:none; margin:0 10px; font-weight:600;
-    }
-    .links a:hover{ color:#fff }
-
-    /* Hero */
-    .hero{ display:grid; grid-template-columns: 1.1fr .9fr; gap:40px; align-items:center; }
-    @media (max-width: 900px){ .hero{ grid-template-columns:1fr; } }
-
-    .eyebrow{ font-weight:700; color:var(--warn); font-size:.95rem; letter-spacing:.3px; }
-    h1{
-      margin:10px 0 8px;
-      font-weight:800; line-height:1.05; letter-spacing:-.5px;
-      font-size: clamp(38px, 5vw, 64px);
-      text-wrap: balance;
-      text-shadow: 0 1px 0 rgba(0,0,0,.3);
-    }
-    .lede{ color: var(--muted); font-size:1.1rem; max-width:62ch; }
-
-    .cta-row{ display:flex; flex-wrap:wrap; gap:14px; margin:22px 0 8px; }
-    .btn{
-      --h:56px;
-      height:var(--h); padding:0 22px; border-radius:14px; border:0; cursor:pointer;
-      font-weight:700; letter-spacing:.3px; color:#101015;
-      background: linear-gradient(90deg, var(--accent) 0%, #B08CFF 50%, var(--accent) 100%);
-      background-size:200% 100%;
-      box-shadow: 0 8px 30px rgba(155,123,255,.35);
-      transition: transform .2s ease, background-position .5s ease;
-    }
-    .btn:hover{ transform: translateY(-2px); background-position:100% 0; }
-    .btn-ghost{
-      background: transparent; color: var(--ink); border: 2px solid rgba(255,255,255,.2);
-      box-shadow:none;
-    }
-    .btn-ghost:hover{ border-color: rgba(255,255,255,.35) }
-
-    /* Hero media with animated border */
-    .media{
-      position:relative; border-radius: clamp(16px, 2.2vw, 22px); overflow:hidden;
-      background: #0f0d1b;
-      box-shadow: var(--shadow);
-      isolation:isolate;
-    }
-    .media::before{
-      content:""; position:absolute; inset:-2px;
-      background: conic-gradient(from 0deg, var(--accent), var(--accent-2), var(--accent));
-      filter: blur(12px); opacity:.6; z-index:-1;
-      animation: spin 6s linear infinite;
-    }
-    @keyframes spin{ to { transform: rotate(360deg) } }
-    @media (prefers-reduced-motion: reduce){ .media::before{ animation:none } }
-
-    .hero-img{
-      display:block; width:100%; height:auto; aspect-ratio: 4 / 3; object-fit:cover;
-      filter: saturate(1.1) contrast(1.02);
-    }
-
-    /* Badges row */
-    .badges{
-      display:flex; flex-wrap:wrap; gap:10px; margin:18px 0 0;
-    }
-    .pill{
-      padding:8px 12px; border-radius:999px; font-weight:700; font-size:.86rem;
-      color:#DCD8FF; background: var(--glass); border:1px solid rgba(255,255,255,.08);
+    /* Simple top nav (optional) */
+    header{
+      position:fixed; inset:0 0 auto 0;
+      height:64px; display:flex; align-items:center; justify-content:center;
+      z-index: 30;
+      background: linear-gradient(180deg, rgba(0,0,0,.55), rgba(0,0,0,0));
       backdrop-filter: blur(6px);
     }
-
-    /* Feature grid */
-    .section{ margin: 88px 0 12px; }
-    .features{
-      display:grid; grid-template-columns: repeat(3, 1fr); gap:18px;
+    .nav{
+      width:100%; max-width:var(--maxw);
+      display:flex; align-items:center; justify-content:space-between;
+      padding:0 20px;
     }
-    @media (max-width: 1000px){ .features{ grid-template-columns:1fr 1fr } }
-    @media (max-width: 640px){ .features{ grid-template-columns:1fr } }
+    .logo{
+      font-weight:800; letter-spacing:.5px; font-size: clamp(18px, 1.7vw, 22px);
+    }
+    .logo b{ color:#a18cff; }
+    .nav a{
+      color:var(--muted); text-decoration:none; font-weight:600;
+      margin-left: clamp(14px, 2vw, 28px);
+    }
+    .nav a:hover{ color:#fff; }
 
-    .card{
-      border-radius: var(--radius);
-      padding:22px 20px;
-      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
-      border:1px solid rgba(255,255,255,.08);
-      box-shadow: var(--shadow);
+    /* HERO */
+    .hero{
       position:relative;
-      overflow:hidden;
+      width:100%;
+      min-height: min(100svh, 980px);
+      display:grid;
+      place-items:center;
+      text-align:center;
+      padding: clamp(72px, 10vw, 120px) 16px 48px;
+      /* Background image */
+      background: url('monk-hero.png') center / cover no-repeat fixed;
+      /* Fallback when fixed isn't supported (mobile safari) */
+      background-attachment: scroll;
     }
-    .card h3{ margin:0 0 6px; font-size:1.06rem }
-    .card p{ margin:0; color:var(--muted) }
-    .card .dot{
-      position:absolute; top:14px; right:16px; width:10px; height:10px; border-radius:50%;
-      background: radial-gradient(var(--accent-2), var(--accent));
-      box-shadow: 0 0 20px var(--accent-2);
-      opacity:.9;
+    /* Dark overlay for readability */
+    .hero::before{
+      content:"";
+      position:absolute; inset:0;
+      background:
+        linear-gradient(180deg, rgba(0,0,0,.50) 0%, rgba(0,0,0,.40) 45%, rgba(0,0,0,.65) 100%);
+      z-index:1;
+    }
+    .hero-inner{
+      position:relative; z-index:2;
+      width:100%; max-width:var(--maxw);
+      margin-inline:auto;
+      padding: clamp(8px, 2vw, 12px);
     }
 
-    /* Footer */
+    h1{
+      font-weight:800;
+      line-height:1.05;
+      text-wrap:balance;
+      /* responsive size */
+      font-size: clamp(34px, 6vw, 64px);
+      letter-spacing:-.02em;
+      text-shadow: 0 2px 0 rgba(0,0,0,.2);
+    }
+    .lede{
+      color:var(--muted);
+      font-size: clamp(16px, 2.2vw, 22px);
+      line-height:1.6;
+      margin: clamp(12px, 2.4vw, 18px) auto clamp(24px, 4vw, 28px);
+      max-width: 42ch;
+    }
+
+    .cta-row{
+      display:flex; align-items:center; justify-content:center; gap:16px;
+      flex-wrap: wrap;
+    }
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center;
+      padding: 16px 24px;
+      border-radius: 12px;
+      font-weight: 700;
+      text-decoration:none;
+      transition: .2s ease transform, .2s ease box-shadow, .2s ease background;
+      box-shadow: var(--shadow);
+      border: 2px solid transparent;
+      cursor:pointer;
+      user-select:none;
+    }
+    .btn.primary{
+      background: var(--brand);
+      color:#fff;
+    }
+    .btn.primary:hover{ background:var(--brand-2); transform: translateY(-1px); }
+    .btn.ghost{
+      background: transparent; color:#fff;
+      border-color: rgba(255,255,255,.3);
+    }
+    .btn.ghost:hover{ border-color:#fff; transform: translateY(-1px); }
+
+    .wallet{
+      margin-top: clamp(12px, 2.4vw, 18px);
+      color:var(--muted);
+      font-size: clamp(14px, 1.8vw, 16px);
+    }
+
+    /* Footer small */
     footer{
-      margin-top: 96px; padding-top: 22px; border-top: 1px dashed rgba(255,255,255,.15);
-      color: var(--muted); font-size:.95rem;
+      text-align:center; color:#bfbafd; opacity:.9;
+      padding: 32px 16px 48px;
+      font-size: 14px;
     }
-    .ens{ font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; color:#fff }
+    footer a{ color:#d8d4ff; text-decoration:none; border-bottom:1px dotted currentColor; }
+    footer a:hover{ color:#fff; }
 
-    /* Background particles (subtle) */
-    canvas#fx{ position: fixed; inset:0; z-index: 0; pointer-events:none; opacity:.35 }
-    @media (prefers-reduced-motion: reduce){ canvas#fx{ display:none } }
+    /* ---- Responsiveness ---- */
 
-    /* Accessibility helpers */
-    .sr{ position:absolute !important; width:1px; height:1px; overflow:hidden; clip:rect(1px,1px,1px,1px); white-space:nowrap; }
+    /* Very small devices: tighten spacing */
+    @media (max-width: 420px){
+      .cta-row{ gap:10px; }
+      .btn{ width:100%; max-width: 520px; }
+    }
+
+    /* Tablets: keep hero tall but not cramped */
+    @media (max-width: 900px){
+      .hero{
+        min-height: 92svh;
+        background-attachment: scroll; /* mobile perf */
+      }
+      .nav a{ display:none; } /* keep header minimal on small */
+    }
+
+    /* Large/desktop: give copy some breathing room */
+    @media (min-width: 1200px){
+      .lede{ max-width: 50ch; }
+    }
+
+    /* Accessibility: reduce motion if preferred */
+    @media (prefers-reduced-motion: reduce){
+      .btn, .btn:hover{ transition:none; transform:none; }
+    }
   </style>
 </head>
-
 <body>
-  <canvas id="fx" aria-hidden="true"></canvas>
-  <div class="bg-grid"></div>
-
-  <div class="wrap">
-    <!-- NAV -->
-    <nav class="nav" aria-label="Primary">
-      <div class="brand">
-        <span class="brand-badge" aria-hidden="true"></span>
-        <span>MonkPad<span style="opacity:.7">.xyz</span></span>
-      </div>
-      <div class="links">
+  <header>
+    <nav class="nav">
+      <div class="logo">MonkPad<b>.xyz</b></div>
+      <div>
         <a href="#about">About</a>
         <a href="#mints">Mints</a>
         <a href="#contact">Contact</a>
       </div>
     </nav>
+  </header>
 
-    <!-- HERO -->
-    <section class="hero" id="home">
-      <div>
-        <div class="eyebrow">🙏 WELCOME TO MONKPAD.XYZ</div>
-        <h1>Burn ego, not bags.</h1>
-        <p class="lede">MonkPad is your path to karma-safe mints, community-vetted projects, and spiritual degen fun.</p>
+  <section class="hero" role="img" aria-label="Meditative monk floating among crypto coins">
+    <div class="hero-inner">
+      <h1>Burn ego, not bags.</h1>
+      <p class="lede">
+        MonkPad is your path to karma-safe mints, community-vetted projects, and spiritual degen fun.
+      </p>
 
-        <div class="cta-row">
-          <a class="btn" href="mailto:monkpad.team@gmail.com?subject=Project%20Submission%20for%20MonkPad&body=Share%20links%2C%20team%2C%20audits%2C%20and%20your%20karma%20pitch.">
-            Submit Your Project
-          </a>
-          <a class="btn btn-ghost" href="#mints" aria-label="View mints (coming soon)">View Mints (soon)</a>
-        </div>
-
-        <div class="badges" aria-label="Supported chains">
-          <span class="pill">BTC</span>
-          <span class="pill">ETH</span>
-          <span class="pill">SOL</span>
-          <span class="pill">ADA</span>
-          <span class="pill">HBAR</span>
-          <span class="pill">MONAD</span>
-        </div>
+      <div class="cta-row">
+        <a class="btn primary" href="mailto:monkpad.team@gmail.com">Submit Your Project to monkpad.eth</a>
+        <a class="btn ghost" href="#" aria-disabled="true">View Mints (coming soon)</a>
       </div>
 
-      <figure class="media">
-        <!-- Place /monk-hero.png at repo root -->
-        <img class="hero-img" src="monk-hero.png" alt="Futuristic monk with crypto coins (BTC, ETH, SOL, ADA, HBAR, Monad) swirling around" loading="eager" decoding="async">
-      </figure>
-    </section>
+      <p class="wallet">Wallet: <b>monkpad.eth</b></p>
+    </div>
+  </section>
 
-    <!-- FEATURES -->
-    <section class="section" id="about" aria-labelledby="about-title">
-      <h2 id="about-title" class="sr">Why MonkPad?</h2>
-      <div class="features">
-        <article class="card">
-          <span class="dot" aria-hidden="true"></span>
-          <h3>Community-Vetted</h3>
-          <p>Vibe checks first. We surface builders with clean karma and real intent.</p>
-        </article>
-        <article class="card">
-          <span class="dot" aria-hidden="true"></span>
-          <h3>Rug-Aware</h3>
-          <p>Simple guardrails + transparency. No magic — just responsibility.</p>
-        </article>
-        <article class="card">
-          <span class="dot" aria-hidden="true"></span>
-          <h3>Karma Scores</h3>
-          <p>Signals from holders &amp; contributors prioritize peace, not pumps.</p>
-        </article>
-      </div>
-    </section>
-
-    <!-- MINTS PLACEHOLDER -->
-    <section class="section" id="mints" aria-labelledby="mints-title">
-      <h2 id="mints-title" class="sr">Mints</h2>
-      <div class="card">
-        <h3>Curated Mints</h3>
-        <p style="color:var(--muted)">Curation module drops soon. Want to be first? Ping us with your deck.</p>
-      </div>
-    </section>
-
-    <!-- CONTACT / FOOTER -->
-    <footer id="contact" class="section" aria-labelledby="contact-title">
-      <h2 id="contact-title" class="sr">Contact</h2>
-      <p>Tip: email us directly at <a href="mailto:monkpad.team@gmail.com">monkpad.team@gmail.com</a>.</p>
-      <p>Submissions also welcome to ENS: <span class="ens">monkpad.eth</span>.</p>
-    </footer>
-  </div>
-
-  <!-- FX: tiny GPU-friendly particles -->
-  <script>
-    (() => {
-      const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-      if (prefersReduced) return;
-
-      const c = document.getElementById('fx');
-      const dpr = Math.min(2, window.devicePixelRatio || 1);
-      const ctx = c.getContext('2d');
-      let W, H, P=[];
-
-      function resize(){
-        W = c.width = Math.floor(innerWidth * dpr);
-        H = c.height = Math.floor(innerHeight * dpr);
-        c.style.width = innerWidth + 'px';
-        c.style.height = innerHeight + 'px';
-        spawn();
-      }
-      addEventListener('resize', resize, {passive:true});
-
-      function spawn(){
-        const n = Math.floor((W*H) / (140000 * dpr));
-        P = Array.from({length:n}, () => ({
-          x: Math.random()*W,
-          y: Math.random()*H,
-          r: 0.6 + Math.random()*1.8,
-          s: 0.2 + Math.random()*0.7,
-          a: Math.random()*Math.PI*2
-        }));
-      }
-
-      function tick(){
-        ctx.clearRect(0,0,W,H);
-        for(const p of P){
-          p.x += Math.cos(p.a)*p.s;
-          p.y += Math.sin(p.a)*p.s;
-          p.a += (Math.random()-0.5)*0.05;
-
-          if(p.x < -50) p.x = W+50;
-          if(p.x > W+50) p.x = -50;
-          if(p.y < -50) p.y = H+50;
-          if(p.y > H+50) p.y = -50;
-
-          const g = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, p.r*6);
-          g.addColorStop(0, 'rgba(67,255,233,0.25)');
-          g.addColorStop(1, 'rgba(155,123,255,0)');
-          ctx.fillStyle = g;
-          ctx.beginPath();
-          ctx.arc(p.x, p.y, p.r*6, 0, Math.PI*2);
-          ctx.fill();
-        }
-        requestAnimationFrame(tick);
-      }
-
-      resize(); tick();
-    })();
-  </script>
+  <footer id="contact">
+    Tip: email us directly at <a href="mailto:monkpad.team@gmail.com">monkpad.team@gmail.com</a>.
+    Submissions also welcome to ENS: <b>monkpad.eth</b>.
+  </footer>
 </body>
 </html>
+
