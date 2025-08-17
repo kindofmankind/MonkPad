@@ -1,14 +1,13 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Essentials -->
-  <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>MonkPad.xyz – Karma-Safe Launchpad</title>
-  <meta name="description" content="MonkPad is your path to karma-safe mints, community-vetted projects, and spiritual degen fun. Burn ego, not bags v2.1" />
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 128 128'><circle cx='64' cy='64' r='62' fill='%23110F1F'/></svg>" />
+  <meta name="description" content="MonkPad is your path to karma-safe mints, community-vetted projects, and spiritual degen fun. Burn ego, not bags." />
 
-  <!-- Fonts (fast) -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 128 128'><circle cx='64' cy='64' r='62' fill='%23110F1F'/></svg>">
+
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
@@ -16,11 +15,12 @@
   <!-- OpenGraph / X -->
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://monkpad.xyz/" />
-  <meta property="og:title" content="MonkPad.xyz – Karma-Safe Launchpad" />
+  <meta property="og:title" content="MonkPad.xyz | Karma-Safe Launchpad" />
   <meta property="og:description" content="Burn ego, not bags. A launchpad with community-vetted vibes and clean karma." />
-  <!-- ✅ Now served from /public -->
+  <!-- ✅ Correct path now -->
   <meta property="og:image" content="/monk-hero.png" />
   <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="/monk-hero.png" />
 
   <!-- JSON-LD -->
   <script type="application/ld+json">
@@ -28,7 +28,7 @@
     "@context": "https://schema.org",
     "@type": "Organization",
     "name": "MonkPad",
-    "url": "https://monkpad.xyz",
+    "url": "https://monkpad.xyz/",
     "description": "Karma-safe launchpad. Community-vetted projects.",
     "sameAs": ["https://x.com/yourhandle"]
   }
@@ -37,48 +37,44 @@
   <style>
     :root {
       --bg: #0b0a12;
-      --ink: #E9E7FF;
+      --ink: #9E7FFF;
       --muted: #5C51F4;
     }
     body {
-      margin: 0;
-      font-family: 'Inter', sans-serif;
       background: var(--bg);
-      color: var(--ink);
+      color: white;
+      font-family: 'Inter', sans-serif;
+      margin: 0;
+      padding: 0;
       text-align: center;
-      padding: 2rem;
     }
     h1 {
-      font-size: 2.5rem;
+      font-size: 3rem;
+      margin-top: 2rem;
     }
-    .cta {
+    a.button {
       display: inline-block;
-      margin: 1rem auto;
+      margin: 1rem;
       padding: 1rem 2rem;
-      background: #6B4FFF;
-      color: white;
+      background: var(--ink);
+      color: black;
+      font-weight: bold;
       border-radius: 8px;
       text-decoration: none;
-      font-weight: bold;
     }
-    img.hero {
-      margin-top: 2rem;
-      max-width: 400px;
-      width: 100%;
-      border-radius: 16px;
+    .wallet {
+      margin-top: 1rem;
+      font-weight: bold;
     }
   </style>
 </head>
 <body>
-  <h1>🙏 WELCOME TO MONKPAD.XYZ</h1>
-  <h2>Burn ego, not bags.</h2>
+  <h1>🔥 Burn ego, not bags.</h1>
   <p>MonkPad is your path to karma-safe mints, community-vetted projects, and spiritual degen fun.</p>
 
-  <a href="mailto:monkpad.eth" class="cta">Submit Your Project to monkpad.eth</a>
-  <p><a href="#">View Mints (coming soon)</a></p>
-  <p>Wallet: <strong>monkpad.eth</strong></p>
+  <a class="button" href="mailto:monkpad.team@gmail.com">Submit Your Project to monkpad.eth</a>
+  <a class="button" href="#">View Mints (coming soon)</a>
 
-  <!-- ✅ This will now load correctly -->
-  <img src="/monk-hero.png" alt="Futuristic monk with crypto coins" class="hero" />
+  <div class="wallet">Wallet: monkpad.eth</div>
 </body>
 </html>
