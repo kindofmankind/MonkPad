@@ -1,24 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- Essentials -->
+  <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>MonkPad.xyz – Karma-Safe Launchpad</title>
+  <title>MonkPad.xyz — Karma-Safe Launchpad</title>
   <meta name="description" content="MonkPad is your path to karma-safe mints, community-vetted projects, and spiritual degen fun. Burn ego, not bags." />
 
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 128 128'><circle cx='64' cy='64' r='62' fill='%23110F1F'/></svg>">
+  <!-- Favicon (inline mini SVG so you don't need a file) -->
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='64' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%231b1b2a'/%3E%3Cpath d='M32 14c7 0 12 5 12 12s-5 12-12 12-12-5-12-12 5-12 12-12zm0 28c10 0 18 6 18 12H14c0-6 8-12 18-12z' fill='%23a78bfa'/%3E%3C/svg%3E" />
 
   <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet" />
 
   <!-- OpenGraph / X -->
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://monkpad.xyz/" />
-  <meta property="og:title" content="MonkPad.xyz | Karma-Safe Launchpad" />
+  <meta property="og:title" content="MonkPad.xyz — Karma-Safe Launchpad" />
   <meta property="og:description" content="Burn ego, not bags. A launchpad with community-vetted vibes and clean karma." />
-  <!-- ✅ Correct path now -->
   <meta property="og:image" content="/monk-hero.png" />
+
+  <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:image" content="/monk-hero.png" />
 
@@ -28,53 +32,336 @@
     "@context": "https://schema.org",
     "@type": "Organization",
     "name": "MonkPad",
-    "url": "https://monkpad.xyz/",
+    "url": "https://monkpad.xyz",
     "description": "Karma-safe launchpad. Community-vetted projects.",
-    "sameAs": ["https://x.com/yourhandle"]
+    "sameAs": [
+      "https://x.com/yourhandle"
+    ]
   }
   </script>
 
   <style>
-    :root {
-      --bg: #0b0a12;
-      --ink: #9E7FFF;
-      --muted: #5C51F4;
+    :root{
+      --bg:#0b0a12;
+      --ink:#E9E7FF;
+      --muted:#C5C1F4;
+      --ink-2:#b8a6ff;
+      --accent:#8b5cf6;
+      --accent-2:#22d3ee;
+      --surface: rgba(255,255,255,0.06);
+      --border: rgba(255,255,255,0.12);
+      --glow: 0 0 24px rgba(139, 92, 246, 0.35);
+      --glow-cyan: 0 0 24px rgba(34, 211, 238, 0.35);
+      --maxw: 1160px;
     }
-    body {
-      background: var(--bg);
-      color: white;
-      font-family: 'Inter', sans-serif;
-      margin: 0;
-      padding: 0;
-      text-align: center;
+
+    *{ box-sizing: border-box }
+    html, body { height: 100%; }
+    body{
+      margin:0;
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      color: var(--ink);
+      background: radial-gradient(1100px 900px at 20% 20%, #22192f 0%, transparent 60%),
+                  radial-gradient(1200px 900px at 80% 20%, #13223a 0%, transparent 60%),
+                  linear-gradient(180deg, #0b0a12 0%, #0b0a12 60%, #0b0a12 100%);
+      overflow-x: hidden;
     }
-    h1 {
-      font-size: 3rem;
-      margin-top: 2rem;
+
+    a { color: inherit; text-decoration: none }
+
+    .wrap{ max-width: var(--maxw); margin: 0 auto; padding: 24px; }
+
+    header{
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 14px; margin: 4px auto 8px; opacity: 0.96;
     }
-    a.button {
-      display: inline-block;
-      margin: 1rem;
-      padding: 1rem 2rem;
-      background: var(--ink);
-      color: black;
-      font-weight: bold;
-      border-radius: 8px;
-      text-decoration: none;
+    .logo{
+      display:flex; align-items:center; gap:8px; letter-spacing: .02em; font-weight:800;
     }
-    .wallet {
-      margin-top: 1rem;
-      font-weight: bold;
+    .dot{ width:12px; height:12px; background:linear-gradient(135deg,var(--accent),var(--accent-2)); border-radius:999px; box-shadow: var(--glow); }
+    nav a{ color: var(--muted); margin-left: 18px; font-weight: 600; opacity: .85 }
+    nav a:hover{ color: var(--ink); opacity: 1 }
+
+    /* hero */
+    .hero { display: grid; grid-template-columns: 1.2fr .9fr; gap: 42px; align-items: center; padding-top: 24px; }
+    .eyebrow{ font-size: 14px; letter-spacing: .1em; color: var(--ink-2); margin-bottom: 8px; opacity: .9 }
+    h1{ font-size: clamp(38px, 6.5vw, 64px); line-height: 1.08; margin: 6px 0 10px; }
+    .lead{ font-size: 18px; color: var(--muted); line-height: 1.72; max-width: 620px; }
+    .cta{ display:flex; gap:14px; flex-wrap:wrap; margin: 22px 0 28px; }
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center;
+      padding: 16px 26px; border-radius: 14px; font-weight: 700; letter-spacing:.02em;
+      border: 1px solid var(--border); background: linear-gradient(180deg, rgba(139,92,246,.22), rgba(139,92,246,.12));
+      color:#fff; box-shadow: var(--glow);
+      transition: transform .12s ease, box-shadow .2s ease, background .2s ease, border-color .2s ease;
+    }
+    .btn:hover{ transform: translateY(-1px); box-shadow: 0 0 36px rgba(139,92,246,.45); border-color: rgba(255,255,255,.2) }
+    .btn-ghost{
+      color: var(--ink); background: transparent; border: 1px solid var(--border);
+      padding: 14px 22px; border-radius: 12px; font-weight:700;
+    }
+    .btn-ghost:hover{ border-color: rgba(255,255,255,.2); box-shadow: var(--glow-cyan) }
+
+    .frame{
+      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
+      border: 1px solid var(--border); border-radius: 20px; overflow: hidden;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.08), 0 12px 40px rgba(0,0,0,.35);
+      min-height: 380px; display: grid; place-items: center;
+      position: relative;
+    }
+    .frame::before{
+      content:""; position:absolute; inset:0; pointer-events:none;
+      background: radial-gradient(600px 300px at 10% 10%, rgba(139,92,246,.15), transparent 60%),
+                  radial-gradient(600px 300px at 90% 10%, rgba(34,211,238,.12), transparent 60%);
+      mix-blend-mode: screen;
+    }
+    .frame img{ width:100%; height:100%; object-fit: cover; display:block }
+
+    /* sections */
+    section{ padding: 72px 0; }
+    .grid{ display:grid; grid-template-columns: repeat(3,1fr); gap: 22px; }
+    .card{
+      padding: 22px; border: 1px solid var(--border); background: var(--surface); border-radius: 16px;
+      backdrop-filter: blur(6px); min-height: 160px; position: relative; overflow: hidden;
+    }
+    .card h3{ margin: 6px 0 8px; }
+    .card p{ margin: 0; color: var(--muted) }
+    .tag{ display:inline-block; font-family: "JetBrains Mono", monospace; font-size: 12px; padding:6px 10px; border-radius: 999px; border:1px solid var(--border); color: var(--ink-2); margin-bottom:10px; background: rgba(139,92,246,.09) }
+
+    .road{ display:grid; grid-template-columns: 1fr 1fr; gap:22px }
+    .step{ padding:18px 18px 16px; border:1px solid var(--border); border-radius:14px; background: var(--surface) }
+    .step h4{ margin: 8px 0 6px }
+    .step p{ margin: 0; color: var(--muted) }
+
+    footer{ padding: 42px 0 60px; color: var(--muted); border-top: 1px solid var(--border); margin-top: 42px }
+    .fine{ font-size: 13px; color: #9ea2b8 }
+
+    /* canvas bg */
+    .canvas-wrap { position: fixed; inset: 0; pointer-events: none; z-index: -1; opacity: .55 }
+    #bg { width: 100%; height: 100%; display: block; }
+
+    /* reveal */
+    .reveal{ opacity:0; transform: translateY(16px); transition: opacity .7s ease, transform .7s ease }
+    .reveal.show{ opacity:1; transform:none }
+
+    /* responsive */
+    @media (max-width: 980px){
+      .hero { grid-template-columns: 1fr; }
+      .frame{ min-height: 300px }
+      .grid{ grid-template-columns: 1fr; }
+      .road{ grid-template-columns: 1fr; }
     }
   </style>
 </head>
 <body>
-  <h1>🔥 Burn ego, not bags.</h1>
-  <p>MonkPad is your path to karma-safe mints, community-vetted projects, and spiritual degen fun.</p>
+  <!-- Canvas / particle field -->
+  <div class="canvas-wrap" aria-hidden="true">
+    <canvas id="bg"></canvas>
+  </div>
 
-  <a class="button" href="mailto:monkpad.team@gmail.com">Submit Your Project to monkpad.eth</a>
-  <a class="button" href="#">View Mints (coming soon)</a>
+  <div class="wrap">
+    <header>
+      <div class="logo"><span class="dot"></span> MonkPad <span style="opacity:.65">.xyz</span></div>
+      <nav>
+        <a href="#about">About</a>
+        <a href="#why">Why</a>
+        <a href="#roadmap">Roadmap</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
 
-  <div class="wallet">Wallet: monkpad.eth</div>
+    <!-- HERO -->
+    <section class="hero">
+      <div>
+        <div class="eyebrow">WELCOME TO MONKPAD.XYZ</div>
+        <h1>Burn ego, not bags.</h1>
+        <p class="lead">
+          MonkPad is your path to karma-safe mints, community-vetted projects, and spiritual degen fun.
+          Launches that feel good the morning after.
+        </p>
+        <div class="cta">
+          <a class="btn" href="mailto:monkpad.team@gmail.com?subject=Submit%20Project%20to%20MonkPad">
+            Submit Your Project to monkpad.eth
+          </a>
+          <a class="btn-ghost" href="#mints" aria-disabled="true">View Mints (coming soon)</a>
+        </div>
+        <div class="fine">Wallet: <strong>monkpad.eth</strong></div>
+      </div>
+
+      <div class="frame reveal">
+        <!-- Your uploaded hero image from /public -->
+        <img src="/monk-hero.png" alt="Futuristic monk with crypto coins (BTC, ETH, SOL, ADA, HBAR, Monad) swirling around" />
+      </div>
+    </section>
+
+    <!-- WHY -->
+    <section id="why">
+      <div class="reveal"><div class="tag">WHY MONKPAD?</div></div>
+      <div class="grid">
+        <div class="card reveal">
+          <h3>Community-Vetted</h3>
+          <p>Projects pass a vibe check first. We spotlight what the community actually wants.</p>
+        </div>
+        <div class="card reveal">
+          <h3>Rug-Aware</h3>
+          <p>Simple guardrails and transparency. No magic, just responsibility.</p>
+        </div>
+        <div class="card reveal">
+          <h3>Karma Scores</h3>
+          <p>Signals from holders & contributors. We reward peace, not pump.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURES -->
+    <section id="about">
+      <div class="reveal"><div class="tag">FEATURES</div></div>
+      <div class="grid">
+        <div class="card reveal">
+          <h3>Multi-Chain Ready</h3>
+          <p>BTC, ETH, SOL, ADA, HBAR, Monad… your tribe, your chain.</p>
+        </div>
+        <div class="card reveal">
+          <h3>Karma-Safe Mints</h3>
+          <p>Soft rules, hard vibes. Launches designed to protect intent and reputation.</p>
+        </div>
+        <div class="card reveal">
+          <h3>Open Curation</h3>
+          <p>Public submissions, community notes, transparent decisions.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ROADMAP -->
+    <section id="roadmap">
+      <div class="reveal"><div class="tag">ROADMAP</div></div>
+      <div class="road">
+        <div class="step reveal">
+          <h4>Phase 1 — Foundations</h4>
+          <p>Site + submission intake. Community “yes/no/why” notes. Karma signals spec.</p>
+        </div>
+        <div class="step reveal">
+          <h4>Phase 2 — Signal Layer</h4>
+          <p>Reputation primitives, contributor badges, anonymous feedback buffers.</p>
+        </div>
+        <div class="step reveal">
+          <h4>Phase 3 — Mintboard</h4>
+          <p>Curated calendar, soft-cap experiments, “slow launch” options.</p>
+        </div>
+        <div class="step reveal">
+          <h4>Phase 4 — Expansion</h4>
+          <p>DAO scaffolding, cross-chain accelerators, rotating curators.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section id="contact">
+      <div class="reveal"><div class="tag">SUBMIT</div></div>
+      <div class="grid">
+        <div class="card reveal" style="grid-column: span 3;">
+          <h3>Have something real?</h3>
+          <p style="margin:10px 0 16px;">Email us directly at <a href="mailto:monkpad.team@gmail.com">monkpad.team@gmail.com</a>. ENS submissions welcome to <strong>monkpad.eth</strong>.</p>
+          <a class="btn" href="mailto:monkpad.team@gmail.com?subject=Submit%20Project%20to%20MonkPad">Submit your project</a>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="fine">© <span id="y"></span> MonkPad.xyz — Burn ego, not bags.</div>
+    </footer>
+  </div>
+
+  <script>
+    // Year
+    document.getElementById('y').textContent = new Date().getFullYear();
+
+    // Reveal on scroll
+    const io = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{
+        if(e.isIntersecting){ e.target.classList.add('show'); io.unobserve(e.target) }
+      })
+    },{threshold:.18});
+    document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+    // Canvas particles + orbits (nice but light)
+    const c = document.getElementById('bg');
+    const ctx = c.getContext('2d');
+    let W=0,H=0, DPR= Math.min(2, window.devicePixelRatio || 1);
+    const N = 140; // particles
+    const parts = [];
+    const orbits = [
+      { r: 130, s: .003, hue: 272 },
+      { r: 210, s: -.0022, hue: 190 },
+      { r: 290, s: .0018, hue: 222 }
+    ];
+    let t=0;
+
+    function rnd(min,max){ return min + Math.random()*(max-min) }
+    function resize(){
+      W = c.width = Math.floor(innerWidth * DPR);
+      H = c.height = Math.floor(innerHeight * DPR);
+      c.style.width = innerWidth+'px'; c.style.height = innerHeight+'px';
+      parts.length = 0;
+      for(let i=0;i<N;i++){
+        parts.push({
+          x: rnd(0,W), y: rnd(0,H),
+          vx: rnd(-.25,.25), vy: rnd(-.25,.25),
+          r: rnd(0.8,2.2)*DPR,
+          a: rnd(0,Math.PI*2)
+        });
+      }
+    }
+    resize(); addEventListener('resize', resize);
+
+    function tick(){
+      t += 1;
+      ctx.clearRect(0,0,W,H);
+
+      // subtle gradient wash
+      const g = ctx.createRadialGradient(W*.12,H*.08,W*.02, W*.9,H*.1,W*.38);
+      g.addColorStop(0,'rgba(139,92,246,.07)');
+      g.addColorStop(1,'rgba(34,211,238,.05)');
+      ctx.fillStyle = g; ctx.fillRect(0,0,W,H);
+
+      // particles
+      ctx.globalCompositeOperation='lighter';
+      parts.forEach(p=>{
+        p.x += p.vx; p.y += p.vy; p.a += 0.01;
+        if(p.x<0||p.x>W) p.vx*=-1;
+        if(p.y<0||p.y>H) p.vy*=-1;
+        const rr = p.r + Math.sin(p.a)*.6;
+        const g2 = ctx.createRadialGradient(p.x,p.y,0, p.x,p.y, rr*4);
+        g2.addColorStop(0, 'rgba(139,92,246,.28)');
+        g2.addColorStop(1, 'rgba(139,92,246,0)');
+        ctx.fillStyle = g2; ctx.beginPath(); ctx.arc(p.x,p.y, rr*4, 0, Math.PI*2); ctx.fill();
+      });
+
+      // orbits
+      const cx = W/2, cy = H/2;
+      orbits.forEach((o, i)=>{
+        const ang = t*o.s;
+        const x = cx + Math.cos(ang)*o.r*DPR;
+        const y = cy + Math.sin(ang)*o.r*DPR;
+
+        // trail
+        ctx.strokeStyle = `hsla(${o.hue}, 90%, 70%, .18)`;
+        ctx.lineWidth = 1*DPR;
+        ctx.beginPath();
+        ctx.arc(cx, cy, o.r*DPR, ang - .35, ang + .35);
+        ctx.stroke();
+
+        // bead
+        const g3 = ctx.createRadialGradient(x,y,0, x,y, 9*DPR);
+        g3.addColorStop(0, `hsla(${o.hue}, 95%, 74%, .9)`);
+        g3.addColorStop(1, `hsla(${o.hue}, 95%, 74%, 0)`);
+        ctx.fillStyle = g3; ctx.beginPath(); ctx.arc(x,y, 9*DPR, 0, Math.PI*2); ctx.fill();
+      });
+
+      ctx.globalCompositeOperation='source-over';
+      requestAnimationFrame(tick);
+    }
+    tick();
+  </script>
 </body>
 </html>
